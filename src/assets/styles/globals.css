@@ -1,11 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "BalooThambi2-Regular";
+  font-family: Raleway, sans-serif;
   height: 100%;
   width: 100%;
 }
@@ -23,13 +24,17 @@ a {
 
 * {
   box-sizing: border-box;
-  font-family: "BalooThambi2-Regular";
+  font-family: BalooThambi2-Regular;
 }
 
 @font-face {
   font-family: "BalooThambi2-Regular";
   src: local("BalooThambi2-Regular"),
     url(../fonts/Baloo/BalooThambi2-Regular.ttf);
+}
+@font-face {
+  font-family: "Raleway-Medium";
+  src: local("Raleway-Medium"), url(../fonts/Raleway/Raleway-Medium.ttf);
 }
 
 /* width */

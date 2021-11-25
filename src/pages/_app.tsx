@@ -7,15 +7,22 @@ import store from "../store/store";
 // import Layout from "@layout/Layout";
 import "@lib/Icons";
 import "react-toastify/dist/ReactToastify.css";
+import "rc-slider/assets/index.css";
+import "rc-tooltip/assets/bootstrap.css";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 // import { isLoggedIn } from "store/actions/userActions";
 
-// import ToasterContainer from "@components/ToasterContainer";
+import ToasterContainer from "@components/ToasterContainer";
+import Layout from "@layout/Layout";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
-      <Component {...pageProps} />;
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+      <ToasterContainer />
     </Provider>
   );
 }
