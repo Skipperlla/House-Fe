@@ -25,7 +25,7 @@ const SingleProductCard: React.FC<Single> = ({
   return (
     <form
       method="post"
-      className="flex justify-between w-full"
+      className="flex lg:justify-between w-full lg:flex-row flex-col"
       onSubmit={(e) => {
         e.preventDefault();
         let items = [];
@@ -33,7 +33,7 @@ const SingleProductCard: React.FC<Single> = ({
         localStorage.setItem("shopBag", JSON.stringify(items));
       }}
     >
-      <div className="w-1/2 rounded">
+      <div className="lg:w-1/2 rounded lg:mb-0 mb-4">
         <Image
           src={shirt}
           layout="responsive"
@@ -41,7 +41,7 @@ const SingleProductCard: React.FC<Single> = ({
           alt=""
         />
       </div>
-      <div className="bg-white w-full border ml-4 p-5 rounded shadow-inner">
+      <div className="bg-white w-full border lg:ml-4 p-5 rounded shadow-inner">
         <header className="border-b pb-2">
           <h1 className="text-blue-500 text-2xl ">{title}</h1>
         </header>
@@ -59,7 +59,7 @@ const SingleProductCard: React.FC<Single> = ({
               onChange={setForm}
               type="number"
               name="quantity"
-              placeholder="Product Quantity"
+              placeholder="Adeti Seçiniz"
               className="border w-full py-1 px-2 mt-2 focus:outline-none"
             />
             {form.quantity >= 25 && (
