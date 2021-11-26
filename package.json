@@ -15,7 +15,6 @@
     "@fortawesome/react-fontawesome": "^0.1.16",
     "@stripe/react-stripe-js": "^1.6.0",
     "@stripe/stripe-js": "^1.21.1",
-    "@types/react-currency-format": "^1.0.0",
     "axios": "^0.24.0",
     "framer-motion": "^5.3.2",
     "js-cookie": "^3.0.1",

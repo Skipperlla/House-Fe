@@ -15,8 +15,12 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 import ToasterContainer from "@components/ToasterContainer";
 import Layout from "@layout/Layout";
+import { useEffect } from "react";
 
 function MyApp({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+    console.log(JSON.parse(localStorage.getItem("store") || "[]"));
+  }, []);
   return (
     <Provider store={store}>
       <Layout>

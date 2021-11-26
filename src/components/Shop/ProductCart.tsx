@@ -5,7 +5,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import * as CurrencyFormat from "react-currency-format";
 
 import Link from "next/link";
-const ProductCart = () => {
+interface IProductCart {
+  title: string;
+  description: string;
+  price: string;
+  target: string;
+}
+const ProductCart: React.FC<IProductCart> = ({
+  title,
+  description,
+  price,
+  target,
+}) => {
   const [like, setLike] = useState<boolean>(false);
   return (
     <div className="relative border rounded shadow-sm bg-white flex flex-col">
@@ -17,7 +28,7 @@ const ProductCart = () => {
           }`}
         />
       </div>
-      <Link href="/">
+      <Link href={target}>
         <a>
           <div className="relative rounded-t border-b flex items-center justify-center">
             <Image
@@ -31,10 +42,9 @@ const ProductCart = () => {
           </div>
           <div className="flex flex-col">
             <div className="p-4 flex flex-col">
-              <h1 className="text-blue-400 text-xl font-semibold">T-Shirt</h1>
+              <h1 className="text-blue-400 text-xl font-semibold">{title}</h1>
               <span className="break-all text-sm mt-2 text-gray-500">
-                dsakdlsadl sldladlsa lddaslşk ldklşaskdlşkaşld ladklaklş kalşd
-                klaşd lsald lald lald asldsladlas ldlad lald lasl asldsladla
+                {description}
               </span>
             </div>
             <div className="p-4 flex justify-between items-center">
@@ -44,12 +54,7 @@ const ProductCart = () => {
                 thousandSeparator={true}
                 prefix={"$"}
               /> */}
-              <span>2,4569.81₺</span>
-
-              <div className="flex items-center justify-center">
-                <span className="mr-1 mt-1">4.4</span>
-                <FontAwesomeIcon icon="star" className="text-yellow-400" />
-              </div>
+              <span>{price}</span>
             </div>
           </div>
         </a>

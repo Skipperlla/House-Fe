@@ -3,6 +3,7 @@ import Menu from "@components/Navbar/Menu";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Sidebar from "./Sidebar";
 const Navbar = () => {
   const ref = useRef<any>();
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -12,9 +13,14 @@ const Navbar = () => {
   function closeMenu() {
     setIsOpen(false);
   }
+  const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
   return (
     <header className="bg-white z-40">
       <HeaderInfo />
+      <Sidebar
+        isSidebarOpen={isSidebarOpen}
+        setIsSidebarOpen={setIsSidebarOpen}
+      />
       <div className="lg:h-7/2 py-4 border-b ">
         <div className="px-4 w-full mx-auto max-w-6xl  lg:grid lg:grid-cols-3 lg:grid-rows-none flex flex-col">
           <div className="flex items-center h-full text-xl w-full justify-center lg:justify-start mb-4 lg:mb-0">
@@ -26,7 +32,13 @@ const Navbar = () => {
           </div>
           <div className="lg:hidden flex items-center justify-between">
             <FontAwesomeIcon icon="bars" className="text-2xl text-gray-300" />
-            <div className=" h-full flex items-center justify-end cursor-pointer  transition-all hover:text-gray-300 relative hover:opacity-50">
+            <div
+              onClick={(e) => {
+                e.preventDefault();
+                setIsSidebarOpen(true);
+              }}
+              className=" h-full flex items-center justify-end cursor-pointer  transition-all hover:text-gray-300 relative hover:opacity-50"
+            >
               <span
                 className="absolute text-center font-semibold w-3 h-3 p-2 text-white text-xs  flex items-center justify-center rounded-full -top-2 -right-2"
                 style={{ background: "#2962ff" }}
@@ -60,7 +72,13 @@ const Navbar = () => {
               </Link>
             </div>
 
-            <div className=" hidden h-full lg:flex items-center justify-center cursor-pointer mr-5 transition-all hover:text-gray-300 relative hover:opacity-50">
+            <div
+              onClick={(e) => {
+                e.preventDefault();
+                setIsSidebarOpen(true);
+              }}
+              className="hidden h-full lg:flex items-center justify-center cursor-pointer mr-5 transition-all hover:text-gray-300 relative hover:opacity-50"
+            >
               <span
                 className="absolute text-center font-semibold w-3 h-3 p-2 text-white text-xs  flex items-center justify-center rounded-full top-0 -right-2"
                 style={{ background: "#2962ff" }}
