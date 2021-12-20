@@ -45,9 +45,11 @@ npm install express mongoose
 
 ```js
 import express from "express"; // express'i uygulamamıza import edelim
+
 import mongoose from "mongoose"; // MongoDB'ye bağlantımızı sağlamak için kullandığımız kütüphane
-import { connectDatabase } from "./helpers/database/connectDatabase.js";
+
 const app = express(); // app adındaki değişkene express'i fonksiyon olarak tanımlıyalım
+
 const PORT = process.env.PORT || 5000; // Uygulamamızın çalışcağı port'u belirliyelim
 
 // Burda ise mongoDB çalıştırmak için bir fonksiyon yazıyoruz
@@ -56,7 +58,6 @@ export const connectDatabase = async () => {
     "mongodb+srv://test:123456789@cluster0.gsfa4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"; 
     // Yukarıda gördüğünüz MongoDB url'imizi tanımlıyoruz
 
-    
   await mongoose
     .connect(
       // Bu fonksiyon mongoDB ile aramızdaki bağlantıyı sağlicak olan köprü
@@ -67,6 +68,7 @@ export const connectDatabase = async () => {
         autoIndex: true, // Burdaki ayarlamalar ise mongoDB'nin hatasını en aza indirgemek için yazdığımız gerekli olan ayarlar
       }
     )
+    
     .then(() => console.log("Connected Database")) 
     // Burası ise eğer ki bağlantı doğru bir şekilde sağlandıysa consol'a yazılcak ifade
     
